@@ -35,6 +35,7 @@
 	</section>
 	<section name="MavenProjectImportWizardPage">
 		<list key="rootDirectory">
+			<item value="C:\Users\vinip\Projetos\alura_eclipse"/>
 			<item value="C:\Users\vinip\Dropbox\Documents\Projetos\workspace\bdd-cucumber-java"/>
 		</list>
 		<list key="projectNameTemplate">
