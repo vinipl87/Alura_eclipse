@@ -9,6 +9,7 @@ import br.com.alura.spring.data.orm.Funcionario;
 public class SpecificationFuncionario {
 
 	public static Specification<Funcionario> nome(String nome) {
+		//Aciona o Specification.toPredicate
 		return (root, criteriaQuery, criteriaBuilder) -> 
 			criteriaBuilder.like(root.get("nome"), "%" + nome + "%");
 	}
