@@ -1,0 +1,42 @@
+Na próxima aula, iremos acessar a console do nosso servidor de aplicação wildfly. A console é uma página web, onde podemos realizar configurações diversas e ver o status dos recursos do servidor. Se você vai acessar pela primeira vez, será necessário configurar um usuário. Para isso, vamos seguir o tutorial a seguir:
+
+1º - Acesse a pasta wildfly-20.0.1.Final\bin.
+
+2º - Execute, via CMD, o add-user.bat
+
+3º - Escolha o tipo Management User (Usuário de Administração)
+
+4º - Escolha o username de sua preferência
+
+5º - Defina a senha e a confirme
+
+6º - Não é necessário definir grupos, então só é necessário apertar enter
+
+7º - Insira yes para incluir o usuário ao ManagementRealm
+
+8º - Insira yes para permitir que o usuário possa acessar outros AS Process
+
+9º - Tecle qualquer tecla para continuar
+
+Pronto, seu usário esta cadastrado e você poderá utilizar sempre que quiser entrar na console web.
+_________________________________________
+
+Até agora tivemos a oportunidade de trabalhar com dois componentes do EJB, o Singleton e o Stateless. Ambos são componentes Session Beans, que geralmente são usados para escrita das regras negociais do sistema. Além destes, existe o Stateful. Para entender melhor, vamos conhecer cada um.
+
+Stateless: Ocorre para cenários em que a requisição não precisa guardar estado. São invocados, processados e retornam o resultado para o cliente que o requisitou. Stateful: Ocorre para cenários em que a requisição deve guardar estado. A invocação é feita e deve durar mais que uma chamada. Um exemplo seria o carrinho de compras de sites e-commerce, onde o usuário pode colocar itens no carrinho e voltar depois para finalizar a compra. Singleton: A instância é criada apenas uma vez e disponibilizada para todo o sistema. Qualquer alteração feita em um componente Singleton estará visível para todos os usuários da aplicação.
+
+Além dos componentes citados acima, temos, também, o MDB (Message-Driven Beans). Não está ligado diretamente ao cliente, ou seja, um cliente não faz uma requisição diretamente para um MDB. Eles seguem o paradigma de comunicação assíncrona, em que a interação se dá através de troca de mensagens. A requisição será feita por um provedor (ou broker) que fará o envio de mensagens e o MDB deverá processá-las. Um provedor é uma aplicação que cria, gerencia e transmite mensagens através do JMS (Java Message Service) que é uma especificação do Jakarte EE.
+
+Por fim temos o Entity Beans, que é um componente usado para persistência de dados. De forma resumida, as entidades do sistema são dados que serão armazenados em uma estrutura de dados, como um banco de dados. Cada instância do bean equivale a um registro nessa estrutura. A vantagem de se trabalhar com entidades, é que não precisamos nos preocupar com a manipulação dos dados diretamente no banco de dados. Outra vantagem é o controle dos serviços por parte do servidor de aplicação.
+_________________________________________
+
+Então para quem não lembra aqui nós estamos dentro da pasta de ‘WildFly’, tem a pasta ‘bin’ e aqui dentro eu vou abrir o terminal cmd, vou chamar o jboss-cli e nós vamos conectar.
+
+[01:49] Primeira coisa que eu preciso fazer aqui é criar a minha Fila e para isso nós temos um comando que e o jns-queue eu vou dar um add que e para criar uma Fila e eu vou adicionar aqui um --queue-address e esse aqui nós vamos dar o nome da nossa Fila que vai ser -EmailQueue.
+
+[02:14] Agora eu preciso definir aqui qual que vai ser o meu JNDI, como que a minha aplicação vai achar a minha Fila, nós fizemos isso para o datasource e agora nos vamos fazer aqui para a nossa Fila.
+
+[02:26] O comando que eu vou colocar é esse java:/jms - que é a nossa especificação Java Message Service - /queue/EmailQueue. Então agora a nossa aplicação vai achar a nossa Fila a partir desse JNDI. Se deu tudo certo ele não vai dar nenhum erro aqui e agora podemos continuar as nossas alterações.
+
+_________________________________________
+
