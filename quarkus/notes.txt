@@ -1,0 +1,11 @@
+https://code.quarkus.io/
+https://www.graalvm.org/downloads/
+
+gu install native-image
+
+https://aka.ms/vs/15/release/vs_buildtools.exe
+cmd /c 'call "C:\Program Files (x86)\Microsoft Visual Studio\2017\BuildTools\VC\Auxiliary\Build\vcvars64.bat" && mvn package -Pnative'
+https://quarkus.io/guides/building-native-image
+
+mvn package -Pnative
+mvn install quarkus:dev
